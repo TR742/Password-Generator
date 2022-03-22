@@ -1,7 +1,8 @@
 // Arrays
-let letters = "abcdefghijklmnopqrstuvwxyz".split("");
-let numbers = "123456789".split("");
-let special = "!@#$%^&*?".split("");
+let letters = "abcdefghijklmnopqrstuvwxyz";
+let numbers = "123456789";
+let special = "!@#$%^&*?";
+let options = "";
 
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
@@ -18,37 +19,16 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // prompts to generate password
-let generatePassword = function() {
+function generatePassword() {
    let userInput = prompt("How long would you like the password to be?\n\nChoose a number between 8 to 128.");
   if (userInput < 8 || userInput > 128) {
     confirm("Invalid option, please choose between 8 and 128");
     return; 
-  }
-
-  let userInputNumbers = prompt("Would you like numbers in the password?");
-  if (userInputNumbers === "yes") {
-    let index = Math.floor(Math.random() * numbers.length);
-    compNumber = numbers[index];
-  } else {
-    compNumber = "";
   };
 
-  let userInputSpecial = prompt("Would you like special characters in the password?");
-  if (userInputSpecial === "yes") {
-    let index = Math.floor(Math.random() * special.length);
-    compSpecial = special[index];
-  } else {
-    compSpecial = "";
-  };
+  alert("For the following questions, please click\n\nOK = Yes\nCancel = No");
 
-  let letterCap = prompt("Would you like all the letters in the password uppercase?");
-  if (letterCap === "yes") {
-    let index = Math.floor(Math.random() * letters.length);
-    compLetters = letters[index];
-    compLetters = compLetters.toUpperCase();
-  } else {
-    let index = Math.floor(Math.random() * letters.length);
-    compLetters = letters[index];
-    compLetters = compLetters.toLowerCase();
-  };
+  let addNumbers = confirm("Numeric values\n\nWould you like to add numeric values to the password?");
+  let addSpecials = confirm("Special characters\n\nWould you like to add special characters to the password?");
+  let makeUpperCase = confirm("Capital letters\n\nWould you like all the letters in the password to be uppercase?");
 };
