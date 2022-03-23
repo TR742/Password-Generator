@@ -1,8 +1,9 @@
 // Arrays
-let letters = "abcdefghijklmnopqrstuvwxyz";
+let lower = "abcdefghijklmnopqrstuvwxyz";
 let numbers = "123456789";
 let special = "!@#$%^&*?";
-let options = letters;
+let options = lower;
+let password = "";
 
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
@@ -18,9 +19,9 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// prompts to generate password
+// determines options for password creation
 function generatePassword() {
-   let length = prompt("How long would you like the password to be?\n\nChoose a number between 8 to 128.");
+  let length = prompt("How long would you like the password to be?\n\nChoose a number between 8 to 128.");
   if (length < 8 || length > 128) {
     confirm("Invalid option, please choose between 8 and 128");
     return; 
@@ -34,16 +35,18 @@ function generatePassword() {
 
   if (addNumbers) {
     options += numbers;
-    console.log('adding numbers to options', options);
   };
 
   if (addSpecials) {
     options += special;
-    console.log('addingi specials to options', options);
   };
 
   if (makeUpperCase) {
     options = options.toUpperCase();
-    console.log('making letters uppercase', options);
   };
+    
+  for (i = 0; i < length; i++) {
+    password += options[Math.floor(Math.random() * options.length)];
+  }
+  return password;
 };
